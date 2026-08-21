@@ -1,0 +1,164 @@
+/* ==========================================================================
+   1. PREMIUM ORANGE FRUIT (CITRUS LIGHT) & OBSIDIAN MATRIX
+   ========================================================================== */
+:root {
+  /* ✦ लाइट मोड -> "Fresh Citrus Pulp" 🍊 */
+  --bg-primary: #FFF8F0 !important;       /* ब्राइट फ्रेश सिट्रस क्रीमी बैकग्राउंड */
+  --bg-surface: #FFEEDC !important;       /* इनपुट बॉक्स और कार्ड्स के लिए थोड़ा गहरा सॉलिड ऑरेंज-टिंट */
+  --text-primary: #2C1405 !important;     /* डीप चॉकलेट अर्थी ब्राउन डार्क टेक्स्ट */
+  --text-secondary: #7A5335 !important;   /* म्यूटेड टेराकोटा शेड */
+  --border-subtle: rgba(249, 115, 22, 0.25) !important; /* सिट्रस ऑरेंज बॉर्डर्स */
+  --accent-color: #EA580C !important;     /* वाइब्रेंट जूसी ऑरेंज */
+}
+
+[data-theme='dark'], .dark {
+  /* ✦ डार्क मोड -> "Pure Obsidian & Fire Amber" 🖤 */
+  --bg-primary: #080707 !important;       /* गहरा रहस्यमयी ओब्सीडियन ब्लैक */
+  --bg-surface: #12100F !important;       /* स्मोक्ड चारकोल वुड सर्फेस */
+  --text-primary: #FAF6F0 !important;     /* कश्मीरी सिल्क व्हाइट */
+  --text-secondary: rgba(250, 246, 240, 0.4) !important; /* फ्रोस्टेड म्यूटेड व्हाइट */
+  --border-subtle: rgba(249, 115, 22, 0.08) !important; /* मॉल्टन एम्बर ग्लो बॉर्डर */
+  --accent-color: #F97316 !important;     /* फायर एम्बर ऑरेंज */
+}
+
+/* ==========================================================================
+   2. GLOBAL BODY & COMPONENT MATCH
+   ========================================================================== */
+body, html {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+}
+
+header, nav, footer, .bg-ink\/85, .bg-ink\/95 {
+  background-color: var(--bg-primary) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+/* ==========================================================================
+   3. TAILWIND HARDCODED CLASSES FORCE OVERRIDES
+   ========================================================================== */
+.bg-\[\#0A0908\], .bg-\[\#0D0C0B\], .bg-transparent, .bg-ink {
+  background-color: var(--bg-primary) !important;
+}
+
+/* रिस्पांस पैनल्स, कार्ड्स, और प्रोफाइलर बॉक्स का बैकग्राउंड */
+.bg-\[\#110F0E\]\/40, 
+.bg-\[\#12100F\]\/40, 
+.bg-\[\#12100F\], 
+.bg-\[\#141211\]\/60,
+.bg-\[\#161413\], 
+.bg-\[\#171514\],
+.bg-primary\/10 {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+/* ✦ बटन और टाइटोग्राफी का टेक्स्ट कलर फिक्स (ताकि लाइट मोड में सब साफ दिखे) */
+.text-\[\#FAF6F0\], 
+.text-\[\#FAF6F0\]\/90, 
+.text-\[\#FAF6F0\]\/80,
+.text-ivory,
+button span,
+button {
+  color: var(--text-primary) !important;
+}
+
+/* डार्क मोड एक्टिव होने पर बटन के टेक्स्ट को वापस व्हाइट रखने के लिए */
+[data-theme='dark'] button span,
+[data-theme='dark'] button,
+.dark button span,
+.dark button {
+  color: var(--text-primary) !important;
+}
+
+.text-mauve {
+  color: var(--text-secondary) !important;
+}
+
+/* हाइलाइट्स और लिंक्स */
+.text-primary, .text-orange-500, .text-orange-600, .text-amber-500 {
+  color: var(--accent-color) !important;
+}
+
+/* बॉर्डर्स सिंक */
+.border-primary\/10,
+.border-primary\/15,
+.border-primary\/20,
+.border-white\/5, 
+.border-white\/10,
+.border-white\/\[0\.05\] {
+  border-color: var(--border-subtle) !important;
+}
+
+/* ==========================================================================
+   4. INPUTS, SELECT BOXES & FORM CONTROLS VISIBILITY
+   ========================================================================== */
+input, select, textarea {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-subtle) !important;
+}
+
+input::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* ==========================================================================
+   5. CHATBOT LONG RESPONSE & SCROLL LOCK FIX 
+   ========================================================================== */
+
+/* चैट के मुख्य एरिया को स्क्रॉल-एबल बनाने के लिए */
+.flex-1.overflow-y-auto, 
+.overflow-y-scroll,
+[class*="messages-container"],
+[class*="chat-history"] {
+  overflow-y: auto !important;
+  max-height: 65vh !important; /* रिस्पॉन्सिव हाइट लॉक */
+  scroll-behavior: smooth !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* इनपुट बॉक्स और नीचे के एलिमेंट्स को अपनी जगह पर फिक्स रखने के लिए */
+.sticky.bottom-0,
+[class*="chat-input-container"] {
+  position: sticky !important;
+  bottom: 0 !important;
+  background-color: var(--bg-primary) !important;
+  z-index: 30 !important;
+}
+
+/* लाइट और डार्क मोड में कस्टमाइज्ड स्लीक स्क्रॉलबार (ताकि गंदा न दिखे) */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle) !important;
+  border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color) !important;
+}
